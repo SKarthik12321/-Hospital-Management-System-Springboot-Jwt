@@ -21,36 +21,33 @@ A simple and secure Hospital Management System backend API built using **Spring 
 ---
 
 ## 📁 Project Structure
-hospital-management-system/
-├── src/
-│   └── main/
-│       ├── java/com/example/hms/
-│       │   ├── config/
-│       │   │   ├── SecurityConfig.java
-│       │   │   ├── JwtAuthenticationFilter.java
-│       │   │   └── JwtService.java
-│       │   ├── controller/
-│       │   │   ├── AuthController.java
-│       │   │   └── PatientController.java
-│       │   ├── dto/
-│       │   │   ├── AuthRequest.java
-│       │   │   ├── AuthResponse.java
-│       │   │   └── PatientDto.java
-│       │   ├── entity/
-│       │   │   ├── User.java
-│       │   │   ├── Role.java
-│       │   │   └── Patient.java
-│       │   ├── repository/
-│       │   │   ├── UserRepository.java
-│       │   │   └── PatientRepository.java
-│       │   ├── service/
-│       │   │   ├── AuthService.java
-│       │   │   └── PatientService.java
-│       │   └── HospitalManagementApplication.java
-│       └── resources/
-│           └── application.properties
-├── pom.xml
-└── README.md
+src/
+└── main/
+├── java/com/example/hms/
+│   ├── config/
+│   │   ├── SecurityConfig.java
+│   │   ├── JwtAuthenticationFilter.java
+│   │   └── JwtService.java
+│   ├── controller/
+│   │   ├── AuthController.java
+│   │   └── PatientController.java
+│   ├── dto/
+│   │   ├── AuthRequest.java
+│   │   ├── AuthResponse.java
+│   │   └── PatientDto.java
+│   ├── entity/
+│   │   ├── User.java
+│   │   ├── Role.java
+│   │   └── Patient.java
+│   ├── repository/
+│   │   ├── UserRepository.java
+│   │   └── PatientRepository.java
+│   ├── service/
+│   │   ├── AuthService.java
+│   │   └── PatientService.java
+│   └── HospitalManagementApplication.java
+└── resources/
+└── application.properties
 
 ---
 
