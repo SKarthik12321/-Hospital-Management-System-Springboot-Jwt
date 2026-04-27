@@ -20,32 +20,35 @@ A simple and secure Hospital Management System backend API built using **Spring 
 
 ---
 
-## 📁 Project Structurehospital-management-system/
-├── src/main/java/com/example/hms
-│   ├── config/
-│   │   ├── SecurityConfig.java
-│   │   ├── JwtAuthenticationFilter.java
-│   │   └── JwtService.java
-│   ├── controller/
-│   │   ├── AuthController.java
-│   │   └── PatientController.java
-│   ├── dto/
-│   │   ├── AuthRequest.java
-│   │   ├── AuthResponse.java
-│   │   └── PatientDto.java
-│   ├── entity/
-│   │   ├── User.java
-│   │   ├── Role.java
-│   │   └── Patient.java
-│   ├── repository/
-│   │   ├── UserRepository.java
-│   │   └── PatientRepository.java
-│   ├── service/
-│   │   ├── AuthService.java
-│   │   └── PatientService.java
-│   └── HospitalManagementApplication.java
-├── src/main/resources/
-│   └── application.properties
+## 📁 Project Structure
+hospital-management-system/
+├── src/
+│   └── main/
+│       ├── java/com/example/hms/
+│       │   ├── config/
+│       │   │   ├── SecurityConfig.java
+│       │   │   ├── JwtAuthenticationFilter.java
+│       │   │   └── JwtService.java
+│       │   ├── controller/
+│       │   │   ├── AuthController.java
+│       │   │   └── PatientController.java
+│       │   ├── dto/
+│       │   │   ├── AuthRequest.java
+│       │   │   ├── AuthResponse.java
+│       │   │   └── PatientDto.java
+│       │   ├── entity/
+│       │   │   ├── User.java
+│       │   │   ├── Role.java
+│       │   │   └── Patient.java
+│       │   ├── repository/
+│       │   │   ├── UserRepository.java
+│       │   │   └── PatientRepository.java
+│       │   ├── service/
+│       │   │   ├── AuthService.java
+│       │   │   └── PatientService.java
+│       │   └── HospitalManagementApplication.java
+│       └── resources/
+│           └── application.properties
 ├── pom.xml
 └── README.md
 
@@ -71,13 +74,15 @@ A simple and secure Hospital Management System backend API built using **Spring 
 
 ## 🔗 API Endpoints
 
-### Auth APIs
+### Auth APIs (Public)
+
 | Method | Endpoint | Description |
 |---|---|---|
 | POST | /api/auth/register | Register a new user |
 | POST | /api/auth/login | Login and get JWT token |
 
-### Patient APIs (🔒 Secured — JWT Required)
+### Patient APIs (🔒 JWT Required)
+
 | Method | Endpoint | Description |
 |---|---|---|
 | POST | /api/patients | Add a new patient |
@@ -90,37 +95,64 @@ A simple and secure Hospital Management System backend API built using **Spring 
 
 ## 🛠️ Setup Instructions
 
-### Prerequisites
-- Java 17+
-- MySQL running on localhost:3306
-- Maven
+### 1. Clone the repository
+```bash
+git clone https://github.com/SKarthik12321/-Hospital-Management-System-Springboot-Jwt.git
+cd Hospital-Management-System-Springboot-Jwt
+```
 
-### Database Setup
-```sqlCREATE DATABASE IF NOT EXISTS hospitalmgmtdb;
+### 2. Create MySQL Database
+```sql
+CREATE DATABASE IF NOT EXISTS hospitalmgmtdb;
+```
 
-### Run the Application
-```bash./mvnw spring-boot:run
+### 3. Configure application.properties
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/hospitalmgmtdb
+spring.datasource.username=root
+spring.datasource.password=root
+```
+
+### 4. Run the Application
+```bash
+./mvnw spring-boot:run
+```
 
 ---
 
-## 🔑 Authorization HeaderAuthorization: Bearer <your_jwt_token>
+## 🔑 Authorization Header Format
+Authorization: Bearer <your_jwt_token>
 
 ---
 
 ## 📌 Project Flow
 
-**Registration:** User → AuthController → AuthService → Encode Password → Save → Success
+**Registration** → User sends name, email, password → password encoded → saved to DB
 
-**Login:** User → AuthController → AuthService → Verify → Generate JWT → Return Token
+**Login** → User sends email, password → JWT token generated → token returned
 
-**Secured API:** Token → JwtFilter → Validate → PatientController → PatientService → DB
+**Secured API** → Token sent in header → JWT validated → request allowed → response returned
+
+---
+
+## 🌿 Branch Strategy
+
+| Branch | Purpose |
+|---|---|
+| main | Production ready — README only |
+| develop | Integration branch — skeleton |
+| feature/db-config | Database configuration |
+| feature/auth | Auth module — JWT + Security |
+| feature/patient | Patient CRUD module |
 
 ---
 
 ## 📝 Future Enhancements
+
 - Doctor Module
 - Appointment Module
 - Role-based Access Control
 - React Frontend
-- Swagger API Docs
+- Swagger API Documentation
 - Pagination and Search
+EOF
